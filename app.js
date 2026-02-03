@@ -24,7 +24,14 @@ app.use("/", indexRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
-server.listen(3000, () => {
-  console.log('Serveur démarré sur http://localhost:3000');
+
+
+// Utilisation de la variable d'environnement PORT
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
+
+
 module.exports = { app, server };

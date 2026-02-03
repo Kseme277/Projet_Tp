@@ -1,13 +1,14 @@
+require('dotenv').config();
 var express = require("express");
 var router = express.Router();
 var mysql = require("mysql2");
 
 // Configuration de la connexion à la base de données
-var db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "01mars&2004",
-  database: "gestion_utilisateurs",
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 // Connexion à la base de données
