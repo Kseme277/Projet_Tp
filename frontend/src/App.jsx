@@ -17,7 +17,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import './App.css';
 
-const API_URL = 'http://localhost:5000/api/users';
+const API_URL = 'http://10.128.54.184:5000/api/users';
 
 function App() {
   const [users, setUsers] = useState([]);
