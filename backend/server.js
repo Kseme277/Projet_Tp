@@ -19,6 +19,7 @@ async function initDB() {
     };
 
     try {
+        console.log(process.env);
         // 1. Connexion sans base de données pour la créer si elle n'existe pas
         const connection = await mysql.createConnection(connectionConfig);
         const dbName = process.env.DB_NAME || 'gestion_utilisateurs';
