@@ -1,5 +1,5 @@
 services:
-  db:
+  bd:
     image: mysql:8.0
     restart: always
     environment:
@@ -19,15 +19,23 @@ services:
       DB_USER: root
       DB_PASSWORD: ${DB_PASSWORD:-01mars&2004}
       DB_NAME: ${DB_NAME:-gestion_utilisateurs}
+
+    networks:
+      - project_network
     depends_on:
-      - db
+      - bd
 
   frontend:
     build: ./frontend
     ports:
       - "5173:80"
+    networks:
+      - project_network
     depends_on:
       - backend
+
+networks:
+  project_network:
 
 volumes:
   db_data:
